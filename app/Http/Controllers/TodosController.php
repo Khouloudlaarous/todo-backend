@@ -18,14 +18,6 @@ class TodosController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +27,14 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request ->validate([
+            'title' => 'required|string',
+            'completed' => 'required|boolean',
+        ]);
+
+        $todo = Todo::create($data);
+
+        return response($todo, 201);
     }
 
     /**
