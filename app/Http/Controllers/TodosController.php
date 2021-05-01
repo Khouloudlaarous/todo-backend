@@ -38,28 +38,6 @@ class TodosController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Todo $todo)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Todo  $todo
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Todo $todo)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -68,8 +46,16 @@ class TodosController extends Controller
      */
     public function update(Request $request, Todo $todo)
     {
-        //
+        $data = $request ->validate([
+            'title' => 'required|string',
+            'completed' => 'required|boolean',
+        ]);
+
+        $todo->update($data);
+
+        return response($todo, 201);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -79,6 +65,8 @@ class TodosController extends Controller
      */
     public function destroy(Todo $todo)
     {
-        //
+        $todo->delete();
+
+        return response('Deleted todo item', 200);
     }
 }
