@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
@@ -53,10 +52,19 @@ class TodosController extends Controller
 
         $todo->update($data);
 
-        return response($todo, 201);
+        return response($todo, 200);
     }
 
+    public function updateAll (Request $request)
+    {
+        $data = $request ->validate([
+            'completed' => 'required|boolean',
+        ]);
+           Todo:: query()->update($data);
 
+        return response('Updated', 200);
+
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -69,4 +77,12 @@ class TodosController extends Controller
 
         return response('Deleted todo item', 200);
     }
+    public function destroyCompleted(Request $request)
+    {
+        $request ->validate([
+            'todos' => 'required|array',
+        ]);
+        Todo:: destroy($request->todos);
+
+        return response('Deleted', 200);
 }
