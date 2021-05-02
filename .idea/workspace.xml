@@ -139,7 +139,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../todo-frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vue-weather-app" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -168,7 +168,9 @@
       <workItem from="1619731600373" duration="204000" />
       <workItem from="1619731826515" duration="5639000" />
       <workItem from="1619819992644" duration="12203000" />
-      <workItem from="1619954695947" duration="9763000" />
+      <workItem from="1619954695947" duration="10415000" />
+      <workItem from="1619988252731" duration="49000" />
+      <workItem from="1619991985405" duration="3864000" />
     </task>
     <servers />
   </component>

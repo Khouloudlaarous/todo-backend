@@ -79,10 +79,11 @@ class TodosController extends Controller
     }
     public function destroyCompleted(Request $request)
     {
-        $request ->validate([
+        $request->validate([
             'todos' => 'required|array',
         ]);
         Todo:: destroy($request->todos);
 
         return response('Deleted', 200);
+    }
 }
